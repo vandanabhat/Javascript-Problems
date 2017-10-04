@@ -1,0 +1,7 @@
+var a = [1, 2, [4, 0]];
+function cloneArray(input){
+  return input.slice(0);
+}
+var b = cloneArray(a);
+a[0] = "v";
+console.log(b);
