@@ -1,0 +1,6 @@
+//Is the given args boolean or not
+
+function booWho(bool) {
+      return typeof bool === 'boolean';
+    }
+booWho(null);
