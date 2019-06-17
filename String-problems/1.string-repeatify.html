@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>String</title>
+</head>
+<body>
+<script>
+    //repeat the given string n times
+
+    String.prototype.repeatify = String.prototype.repeatify || function(num){
+  var str = "";
+  for (var i=0; i < num ; i++){
+      str += this;
+  }
+  return str;
+}
+console.log('hello'.repeatify(3));
+</script>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [-89,3,5,8,90,99,100,700,1001,1007];
+    let b =[-89,7,450,1008,8900];
+
+    function sortList(a,b){
+        let result = [];
+
+        if (a.length === 0 || a === undefined) {
+            return b || "sorry";
+        } else if(b.length === 0 || b === undefined) {
+            return a || "sorry";
+        }
+        let ca = 0, cb = 0;
+
+        while(ca < a.length && cb < b.length){
+            console.log(a[ca]+" -- "+b[cb]);
+            if(a[ca] < b[cb]){
+                result.push(a[ca++]);
+            } else if(a[ca] > b[cb]){
+                result.push(b[cb++]);
+            }else {
+                result.push(a[ca++]);
+                result.push(b[cb++]);
+            }
+            console.log(result);
+        }
+
+        if(b.length === a.length){
+            return result;
+        }else if(cb === b.length){
+            return result.concat((a.slice(ca)));
+        }else {
+            return result.concat(b.slice(cb));
+        }
+    }
+
+    console.log(sortList(a,b));
+</script>
+</body>
+</html>
