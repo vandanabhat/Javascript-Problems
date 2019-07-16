@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var selfDividingNumbers = function(left, right) {
+        let result = [];
+
+        for(let i=left ; i<=right ; i++){
+            let num = i;
+            while(num > 0){
+                let temp = num % 10;
+
+                if(temp === 0){
+                    break;
+                }
+                if(i % num === 0){
+                    num = Math.parseFloat( num / 10 );
+                }else{
+                    break;
+                }
+                //console.log(num);
+
+            }
+            if(num === 0) {
+                result.push(i);
+            }
+        }
+
+        return result;
+    };
+
+    console.log(selfDividingNumbers(1,40));
+</script>
+</body>
+</html>

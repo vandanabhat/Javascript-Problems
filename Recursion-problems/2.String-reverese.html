@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String reverese</title>
+</head>
+<body>
+<script>
+    function reverseString(str){
+        if(str === ""){
+            return "";
+        }
+        return reverseString(str.substr(1)) + str[0];
+    }
+
+    reverseString("abcd");
+
+</script>
+</body>
+</html>

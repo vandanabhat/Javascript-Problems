@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flatten given array</title>
+</head>
+<body>
+<script>
+    function flatten(arr) {
+  let result = [];
+  function flatDeep(list) {
+    let i = 0;
+    while(list.length > i){
+      if(Array.isArray(list[i])){
+      flatDeep(list[i]);
+    } else {
+      result.push(list[i]);
+    }
+      ++i;
+    }
+  }
+  flatDeep(arr);
+  return result;
+}
+flatten([1,2,8]);
+
+</script>
+</body>
+</html>

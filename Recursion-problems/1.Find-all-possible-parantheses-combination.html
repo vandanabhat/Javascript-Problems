@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursion</title>
+</head>
+<body>
+<script>
+
+    function allPossibleValidParensHelper(parens, open, close) {
+        // if open == 0, close all and return
+        if (open == 0) {
+            while(close > 0) {
+                parens = parens + ")";
+                close--;
+            }
+            console.log(parens);
+            return;
+        }
+        allPossibleValidParensHelper(parens + "(", open - 1, close);
+
+        // if close > open, close and recurse
+        if (close > open) {
+            allPossibleValidParensHelper(parens + ")", open, close - 1);
+        }
+    }
+
+    allPossibleValidParensHelper("", 3, 3);
+</script>
+</body>
+</html>

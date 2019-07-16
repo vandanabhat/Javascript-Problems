@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var endorsements = [
+        { skill: 'css', user: 'Bill' },
+        { skill: 'javascript', user: 'Chad' },
+        { skill: 'javascript', user: 'Bill' },
+        { skill: 'css', user: 'Sue' },
+        { skill: 'javascript', user: 'Sue' },
+        { skill: 'html', user: 'Sue' }
+    ];
+    // Result - ordered by count
+//    [
+//        { skill: 'javascript', user: ['Chad', 'Bill', 'Sue'], count: 3 },
+//        { skill: 'css', user: ['Sue', 'Bill'], count: 2 },
+//        { skill: 'html', user: ['Sue'], count: 1 }
+//    ];
+    let map1 = {};
+    let result = [];
+    endorsements.forEach((item) => {
+        if (!map1.hasOwnProperty(item.skill)){
+        map1[item.skill] = true;
+        result.push({
+            skill: item.skill,
+            user: [item.user],
+            count: 1
+        });
+    } else {
+        let index = result.findIndex(item2 => item2.skill === item.skill);
+        result[index]['user'].push(item.user);
+        result[index]['count']++;
+    }
+
+    });
+    console.log(result);
+</script>
+</body>
+</html>

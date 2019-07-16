@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spalash</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background: rgba(0, 0, 51, 0.93);
+        }
+        * {
+            margin: 0;
+            color: #c3b117;
+        }
+        container {
+            position: relative;
+        }
+        div.spalsh {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+        }
+        .spalshOn {
+            color: red;
+            transform: scaleZ(2) rotate(50deg);
+        }
+
+    </style>
+</head>
+<body>
+ <div class="container">
+     <div class="spalsh">
+         <h1 id="splash">SPALSH!</h1>
+     </div>
+ </div>
+<script>
+    let letter = document.getElementById('splash').textContent;
+    let span= '';
+    [...letter].forEach((char)=> {
+        span = span +  `<span class="spalsh-span">${char}</span>`;
+    })
+    let div = document.getElementsByClassName('spalsh');
+    div[0].innerHTML = span;
+    div[0].addEventListener('mouseover', (event) => {
+        if(event.target.nodeName === 'SPAN') {
+            event.target.classList = 'spalshOn';
+        }
+    });
+    div[0].addEventListener('mouseout', (event) => {
+        if(event.target.nodeName === 'SPAN') {
+        event.target.classList.remove('spalshOn');
+    }
+    })
+</script>
+</body>
+</html>

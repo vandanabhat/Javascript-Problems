@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debounce</title>
+</head>
+<body>
+ <input type="phone" id="phone" name="phone" value="" max="6">
+ <script>
+
+//     let timer;
+//     function debounce(fn,time){
+//
+////         return function(){
+//             clearTimeout(timer);
+//             timer = setTimeout(function(){
+//                 fn.call(this);
+//             }, time);
+////         }
+//     }
+
+//mock event
+     //let callDebouncer = debounce(getData, 500);
+     let phoneInput = document.getElementById('phone');
+     let num = /\d/g;
+     phoneInput.addEventListener('keypress', function (event) {
+         //debounce(getData, 500)
+         console.log(num.test(event.target.key));
+         if(!num.test(event.target.key)){
+             return;
+         }
+         console.log(event.target.value);
+         let phoneNum = event.target.value;
+         if(!phoneNum.startsWith('(') && phoneNum.length > 0){
+             phoneInput.value = phoneNum = '(' + phoneNum;
+         }
+         else if(phoneNum.length >= 5 && phoneNum[4] !== ')'){
+             phoneInput.value = phoneNum = phoneNum.substr(0,4) + ")" + phoneNum.substr(4);
+         }
+         else if(phoneNum.length >= 9 && phoneNum[9] !== '-'){
+             phoneInput.value = phoneNum = phoneNum.substr(0,8) + "-" + phoneNum.substr(9);
+         }
+         if(phoneNum.length > 12) {
+             phoneInput.value = phoneNum = phoneNum.substr(0,13);
+         }
+     });
+ </script>
+</body>
+</html>
