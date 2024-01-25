@@ -1,0 +1,7 @@
+function removeDups(arr){
+  let result = new Set(arr);
+ 
+  return Array.from(result);
+}
+
+console.log(removeDups([1,4,5,6,5,6,1,4,8,-6,-6]))
