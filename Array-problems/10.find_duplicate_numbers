@@ -1,0 +1,16 @@
+function findDups(arr){
+  let result = [];
+  const temp = {};
+
+  arr.forEach((item, i)=>{
+    if(!temp[item]){
+      temp[item] = 1;
+    }else if(temp[item] >= 1){
+      result.push(item);
+      temp[item] += 1;
+    }
+  })
+  return result;
+}
+
+console.log(findDups([1,4,5,6,5,6,1,4,8,-6,-6]))
