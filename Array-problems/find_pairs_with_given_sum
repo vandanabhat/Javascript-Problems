@@ -1,0 +1,25 @@
+function findPairsWithSum(arr, targetSum) {
+  const result = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    // for (let j = i + 1; j < arr.length; j++) {
+    //   if (arr[i] + arr[j] === targetSum) {
+    //     result.push([arr[i], arr[j]]);
+    //   }
+    // }
+    const temp = targetSum - arr[i];
+    const n = arr.find((i)=> temp === i)
+    if(n){
+      result.push([arr[i], n]);
+    }
+  }
+
+  return result;
+}
+
+// Example usage:
+const integerArray = [3, 1, 4, 2, 8, 6, 7, 5, 0, 9, 4, 5];
+const targetSum = 9;
+const pairs = findPairsWithSum(integerArray, targetSum);
+
+console.log("Pairs with sum", targetSum, ":", pairs);
