@@ -1,0 +1,16 @@
+//find a duplicate number in a given array
+
+function findDuplicateNumber(arr){
+const numberSet = new Set();
+
+for(const num of arr){
+  if(numberSet.has(num)){
+    return num;
+  }
+  numberSet.add(num);
+}
+return "Not found";
+
+}
+
+console.log("Duplicate numbwe is ->", findDuplicateNumber([3, 1, 4, 2, -8,9,7,-7,-8]));
