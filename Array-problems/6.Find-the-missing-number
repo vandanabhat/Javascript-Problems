@@ -1,0 +1,39 @@
+// find the missing number in a given integer array of 1 - 10
+
+const findMissingNum = (arr) => {
+  const expectedSum = (10 * (10 + 1))/ 2;
+
+  const arrSum = arr.reduce((sum, num) => sum + num, 0);
+
+  return expectedSum - arrSum;
+};
+
+console.log("Missing Number is:", findMissingNum([1,2,3,5,6,7,8,9,10]))
+
+
+// find the missing number in a given integer unsorted array with -ve 
+
+
+function findMissingNumberUnsorted(arr) {
+  // Create a set to keep track of numbers in the array
+  const numberSet = new Set(arr);
+
+  // Find the minimum and maximum values in the array
+  const minValue = Math.min(...arr);
+  const maxValue = Math.max(...arr);
+
+  // Iterate through the range and check for the missing number
+  for (let i = minValue; i <= maxValue; i++) {
+    if (!numberSet.has(i)) {
+      return i;
+    }
+  }
+
+  // If no missing number is found, return null or another indicator
+  return null;
+}
+
+// Example usage:
+
+console.log("Missing Number is:", findMissingNumber([-2,-1,0,1,2,3,4,5,6,7,8,9,10]))
+console.log("Missing Number is:", findMissingNumber([-2,-1,0,1,2,3,4,5,-5,6,7,-4,8,9,10]))
