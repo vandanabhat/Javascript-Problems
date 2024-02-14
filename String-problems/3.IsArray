@@ -1,9 +1,0 @@
-function isArray(input){
-    if(toString.call(input) == "[object Array]"){
-    return true;
-  }
-  return false;
-}
-
-console.log(isArray([]));
-console.log(isArray("vandan"));
