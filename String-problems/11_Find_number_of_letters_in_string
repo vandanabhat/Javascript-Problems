@@ -1,0 +1,25 @@
+There is a sequence of words in CamelCase as a string of letters, having the following properties:
+
+1.It is a concatenation of one or more words consisting of English letters.
+2.All letters in the first word are lowercase.
+3.For each of the subsequent words, the first letter is uppercase and rest of the letters are lowercase.
+
+Given S, determine the number of words in s.
+
+input - "oneTwoThree"
+output - 3
+
+There are 3  words in the string: 'one', 'Two', 'Three'.
+
+function camelcase(s: string): number {
+    // Write your code here
+    let result = 0;
+    for(let i=1; i<= s.length; i++){
+        if(s.charAt(i) === s.charAt(i).toUpperCase()){
+            result++;
+        }
+    }
+    return result;
+}
+consts = "oneTwoThree";
+console.log(camelcase(s));
