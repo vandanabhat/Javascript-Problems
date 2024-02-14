@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Recursion</title>
-</head>
-<body>
-<script>
+
 
     function allPossibleValidParensHelper(parens, open, close) {
         // if open == 0, close all and return
@@ -26,6 +19,3 @@
     }
 
     allPossibleValidParensHelper("", 3, 3);
-</script>
-</body>
-</html>
